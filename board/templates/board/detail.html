@@ -6,6 +6,9 @@
     {% endif %}
     <h1>{{ post.title }}</h1>
     <p> {{ post.body|linebreaks }}</p>
+    {% if post.image %}
+        <img src="{{post.image.url}}" height=400>
+    {% endif %}
 </div>
 <hr>
 <a href="{% url 'edit' pk=post.pk %}">수정하기</a>

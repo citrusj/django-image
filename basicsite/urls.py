@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 import board.views
 
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',board.views.home, name="home"),
@@ -25,3 +27,4 @@ urlpatterns = [
     path('edit/<int:pk>', board.views.edit, name="edit"),
     path('delete/<int:pk>', board.views.delete, name="delete"),
 ]
+urlpatterns+=static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
